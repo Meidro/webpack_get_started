@@ -1,6 +1,21 @@
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+const babelOptions = (preset) => {
+   const opts = {
+      loader: 'babel-loader',
+      options: {
+         presets: ['@babel/preset-env'],
+      },
+   };
+
+   if (preset) {
+      opts.options.presets.push(preset);
+   }
+
+   return opts;
+};
 
 module.exports = {
    mode: 'development',
@@ -12,7 +27,7 @@ module.exports = {
       path: path.resolve(__dirname, 'dist'),
    },
    resolve: {
-      extensions: ['.js'],
+      extensions: ['.js', '.ts', '.json'],
    },
    plugins: [
       new HtmlWebpackPlugin({
@@ -38,6 +53,16 @@ module.exports = {
             test: /\.(ttf|woff|woff2|eot|otf)$/,
             use: ['file-loader'],
          },
+         {
+            test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: babelOptions(),
+         },
+         {
+            test: /\.ts$/,
+            exclude: /node_modules/,
+            use: babelOptions('@babel/preset-typescript'),
+         },
       ],
    },
-}
+};

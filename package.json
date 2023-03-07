@@ -5,7 +5,7 @@
    "author": "'Minibaev'",
    "license": "MIT",
    "scripts": {
-      "dev": "yarn webpack --mode development"
+      "dev": "yarn webpack --mode development --watch"
    },
    "devDependencies": {
       "clean-webpack-plugin": "^4.0.0",

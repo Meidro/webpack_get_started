@@ -1,4 +1,5 @@
 import {header} from './header';
+import './styles/style.css';
 
 console.log(header);
 

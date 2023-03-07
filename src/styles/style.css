@@ -3,3 +3,9 @@
    margin: 0 auto;
    padding: 0 15px;
 }
+
+.img-block {
+   width: 500px;
+   height: 500px;
+   background-color: #d8d8d8;
+}

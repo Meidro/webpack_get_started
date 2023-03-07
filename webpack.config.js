@@ -1,6 +1,6 @@
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
    mode: 'development',
@@ -23,8 +23,8 @@ module.exports = {
    module: {
       rules: [
          {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
+            test: /\.s[ac]ss$/,
+            use: ['style-loader', 'css-loader', 'sass-loader'],
          },
          {
             test: /\.(png|jpg|svg|jpeg|gif)$/,
@@ -36,4 +36,4 @@ module.exports = {
          },
       ],
    },
-};
+}

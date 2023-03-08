@@ -5,8 +5,10 @@
    "author": "'Minibaev'",
    "license": "MIT",
    "scripts": {
-      "dev": "yarn webpack --mode development --watch",
-      "server": "json-server --watch db.json --port 4444"
+      "start": "node server.js",
+      "webp": "yarn webpack --mode development --watch",
+      "server": "json-server --watch db.json --port 4444",
+      "dev": "concurrently \"yarn webp\" \"yarn start\" \"yarn server\""
    },
    "devDependencies": {
       "@babel/core": "^7.21.0",
